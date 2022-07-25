@@ -53,7 +53,7 @@ public struct BXSliderView: UIViewRepresentable {
   public func makeUIView(context: Context) -> CustomSlider {
     let slider = CustomSlider(height: height)
     
-    let thumb = UIImage(named: "thumb")
+    let thumb = UIImage(named: "thumb", in: Bundle.module, with: nil)
     
     slider.minimumTrackTintColor = .red
     slider.maximumTrackTintColor = UIColor(Color(red: 0.7, green: 0.7, blue: 0.7, opacity: 0.4))
