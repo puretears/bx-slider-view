@@ -10,15 +10,15 @@ import SwiftUI
 public class CustomSlider: UISlider {
   let height: CGFloat
   
-  public init(height: CGFloat) {
+  public required init(height: CGFloat) {
     self.height = height
-    super.init()
+    super.init(frame: .zero)
   }
   
-  override public init(frame: CGRect) {
-    height = 0
-    super.init(frame: frame)
-  }
+//  override public init(frame: CGRect) {
+//    height = 0
+//    super.init(frame: frame)
+//  }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
