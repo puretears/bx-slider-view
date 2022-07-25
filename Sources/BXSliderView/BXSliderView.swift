@@ -15,6 +15,11 @@ public class CustomSlider: UISlider {
     super.init()
   }
   
+  override public init(frame: CGRect) {
+    height = 0
+    super.init(frame: frame)
+  }
+  
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
