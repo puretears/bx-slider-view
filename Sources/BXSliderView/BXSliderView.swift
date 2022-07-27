@@ -36,14 +36,14 @@ public class CustomSlider: UISlider {
 public struct BXSliderView: UIViewRepresentable {
   @Binding var value: Float
   let height: CGFloat
-  let onChanged: () -> Void
-  let onEnded: () -> Void
+  let onChanged: (Float) -> Void
+  let onEnded: (Float) -> Void
   
   public init(
     value: Binding<Float>,
     height: CGFloat = 2.0,
-    onChanged: @escaping () -> Void = {},
-    onEnded: @escaping () -> Void = {}) {
+    onChanged: @escaping (Float) -> Void = { _ in},
+    onEnded: @escaping (Float) -> Void = {_ in}) {
     self._value = value
     self.height = height
     self.onChanged = onChanged
@@ -89,10 +89,10 @@ public class SliderCoordinator: NSObject {
   
   @MainActor @objc func changed(slider: CustomSlider) {
     if slider.isTracking {
-      parent.onChanged()
+      parent.onChanged(slider.value)
     }
     else {
-      parent.onEnded()
+      parent.onEnded(slider.value)
     }
   }
 }
